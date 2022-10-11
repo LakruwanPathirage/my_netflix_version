@@ -36,6 +36,24 @@ const listItem = [
   {
     video: "https://www.youtube.com/watch?v=YXI7hlGblVA",
   },
+  {
+    video: "https://www.youtube.com/watch?v=YXI7hlGblVA",
+  },
+  {
+    video: "https://www.youtube.com/watch?v=YXI7hlGblVA",
+  },
+  {
+    video: "https://www.youtube.com/watch?v=YXI7hlGblVA",
+  },
+  {
+    video: "https://www.youtube.com/watch?v=YXI7hlGblVA",
+  },
+  {
+    video: "https://www.youtube.com/watch?v=YXI7hlGblVA",
+  },
+  {
+    video: "https://www.youtube.com/watch?v=YXI7hlGblVA",
+  },
 ];
 
 const List = () => {
@@ -48,15 +66,11 @@ const List = () => {
     console.log("nn", listRef.current.getBoundingClientRect());
     if (mode == "prev" && slideNumber > 0) {
       setSlideNumber(slideNumber - 1);
-      listRef.current.style.transform = `translateX(${
-        listRef.current.getBoundingClientRect().width / 5 + distance
-      }px)`;
+      listRef.current.style.transform = `translateX(${230 + distance}px)`;
     }
     if (mode == "next" && slideNumber < 5) {
       setSlideNumber(slideNumber + 1);
-      listRef.current.style.transform = `translateX(${
-        -listRef.current.getBoundingClientRect().width / 5 + distance
-      }px)`;
+      listRef.current.style.transform = `translateX(${-230 + distance}px)`;
     }
   };
 

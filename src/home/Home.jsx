@@ -8,12 +8,11 @@ const Home = () => {
     <div className="home">
       <Navbar />
       <Featured type="Series" />
-
-      <List />
-
-      <List />
-      <List />
-      <List />
+      {[1, 2, 3, 4].map((el, index) => (
+        <div className={`crasoul_list${index}`}>
+          <List />
+        </div>
+      ))}
     </div>
   );
 };
