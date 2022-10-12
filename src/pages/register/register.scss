@@ -1,0 +1,94 @@
+.register {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 100%
+    ),
+    url("https://assets.nflxext.com/ffe/siteui/vlv3/b321426e-35ae-4661-b899-d63bca17648a/462d8ff3-51d2-455f-92bc-1ef044c21528/LK-en-20220926-popsignuptwoweeks-perspective_alpha_website_large.jpg");
+  background-size: cover;
+  position: relative;
+  .conatiner {
+    width: 95%;
+    margin: auto;
+    margin: auto;
+  }
+  .register_nav {
+    padding: 5px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo {
+      height: 50px;
+      width: auto;
+    }
+    .signin {
+      height: 40px;
+      width: 100px;
+      outline: none;
+      border: none;
+      font-size: 16px;
+      background: red;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+  .search_section {
+    position: absolute;
+    width: 85%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+    h2 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+    p {
+      font-size: 16px;
+    }
+    .searchbar {
+      height: 50px;
+      margin-top: 25px;
+      width: 90%;
+      display: flex;
+      border-radius: 15px;
+    }
+    .email_input,
+    .startbtn {
+      flex-grow: 1;
+    }
+    .email_input {
+      flex-basis: 80%;
+      padding: 5px 8px;
+      font-size: 16px;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+
+      outline: none;
+    }
+    .email_input::placeholder {
+      color: rgb(142, 130, 130);
+      font-size: 16px;
+    }
+    .startbtn {
+      flex-basis: 20%;
+      border: none;
+      outline: none;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      outline: none;
+      border: none;
+      background: red;
+      color: white;
+      font-size: 16px;
+    }
+  }
+}

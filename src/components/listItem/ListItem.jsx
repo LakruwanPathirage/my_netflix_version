@@ -44,10 +44,12 @@ const ListItem = ({ index, video }) => {
               <span>1 hour 14 mins</span>
               <span className="limit">+16</span>
               <span>1999</span>
-              <span>1 hour 14 mins</span>
-              <span className="limit">+16</span>
-              <span>1999</span>
             </div>
+          </div>
+          <div className="desc_and_action">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus
+            olorum, ad provident, blanditiis temporibus? Vel nam distinctio
+            <div className="action">Action</div>
           </div>
         </div>
       </div>
