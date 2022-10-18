@@ -1,12 +1,31 @@
 import "./featured.scss";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import { useEffect, useState } from "react";
+import axios from "axios";
 const Featured = ({ type }) => {
+  const [content, setContent] = useState({});
+
+  useEffect(() => {
+    const getRandomContent = async () => {
+      try {
+        const res = await axios.get(`/movies/random?type=${type}`, {
+          headers: {
+            token: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGJlMTM5ZmMzZjUzMjU5MDdkZjY3ZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY2NTkxOTk3MywiZXhwIjoxNjY2MzUxOTczfQ.OWl4DHFtfZGvvmmCe_SAY7WmH19EFC7rtavFuK_5DiY`,
+          },
+        });
+        setContent(res.data[0]);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getRandomContent();
+  }, [type]);
   return (
     <div className="featured">
       {type && (
         <div className="genere_conatiner">
-          <span>{type === "movies" ? "Movies" : "Series"}</span>
+          <span>{type === "movie" ? "Movies" : "Series"}</span>
 
           <select name="genre" id="genre">
             <option>Genre</option>
@@ -27,20 +46,10 @@ const Featured = ({ type }) => {
         </div>
       )}
 
-      <img
-        src="https://assets.nflxext.com/ffe/siteui/vlv3/b321426e-35ae-4661-b899-d63bca17648a/462d8ff3-51d2-455f-92bc-1ef044c21528/LK-en-20220926-popsignuptwoweeks-perspective_alpha_website_large.jpg"
-        alt=""
-      />
+      <img src={content.img} alt="" />
       <div className="info">
-        <img
-          src="https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABUZdeG1DrMstq-YKHZ-dA-cx2uQN_YbCYx7RABDk0y7F8ZK6nzgCz4bp5qJVgMizPbVpIvXrd4xMBQAuNe0xmuW2WjoeGMDn1cFO.webp?r=df1"
-          alt="info"
-        />
-        <div className="desc">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-          facilis accusamus doloribus consequuntur labore mollitia sint culpa
-          praesentium! Consequuntur obcaecati est numquam odio quibusdam ut eum
-        </div>
+        <img src={content.imgTitle} alt="" />
+        <div className="desc">{content.desc}</div>
         <div className="buttons">
           <button className="play_section">
             <PlayArrowIcon />
