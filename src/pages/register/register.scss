@@ -63,10 +63,10 @@
     }
     .email_input,
     .startbtn {
-      flex-grow: 1;
+      width: 150px;
     }
     .email_input {
-      flex-basis: 80%;
+      flex-grow: 1;
       padding: 5px 8px;
       font-size: 16px;
       border-top-left-radius: 5px;
@@ -74,12 +74,19 @@
 
       outline: none;
     }
+    input[type="password"] {
+      flex-basis: 70% !important;
+    }
+    .username_input {
+      flex-grow: 1;
+      outline: none;
+      padding: 5px 8px;
+    }
     .email_input::placeholder {
       color: rgb(142, 130, 130);
       font-size: 16px;
     }
     .startbtn {
-      flex-basis: 20%;
       border: none;
       outline: none;
       border-top-right-radius: 5px;

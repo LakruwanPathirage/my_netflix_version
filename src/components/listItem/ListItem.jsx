@@ -14,7 +14,7 @@ const ListItem = ({ index, movieId }) => {
     const getSingleMovie = async () => {
       const res = await axios.get("movies/find/" + movieId, {
         headers: {
-          token: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGJlMTM5ZmMzZjUzMjU5MDdkZjY3ZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY2NTkxOTk3MywiZXhwIjoxNjY2MzUxOTczfQ.OWl4DHFtfZGvvmmCe_SAY7WmH19EFC7rtavFuK_5DiY`,
+          token: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGJlMTM5ZmMzZjUzMjU5MDdkZjY3ZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY2ODY0OTAzMCwiZXhwIjoxNjY5MDgxMDMwfQ.kmAtxr0XWpFy2OshQfouYB0tdVNvGs-MmpsddPlG4to`,
         },
       });
       console.log("mm", res.data);
@@ -44,12 +44,7 @@ const ListItem = ({ index, movieId }) => {
           }}
         >
           <div className="info">
-            <video
-              src={movie.trailer}
-              autoPlay={true}
-              loop
-              className="video_player"
-            />
+            <video src={movie.trailer} loop className="video_player" />
             <div className="playsection">
               <div className="icon_section">
                 <PlayArrowIcon className="video_icons" />
