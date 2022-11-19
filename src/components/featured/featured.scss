@@ -14,20 +14,31 @@
   }
   .info {
     position: absolute;
-    left: 50px;
+    right: 50px;
     bottom: 100px;
-    width: 35%;
+    width: 50%;
     color: white;
     font-size: 16px;
     img {
-      width: 400px;
+      width: 37vw;
+      height: 223px;
+      object-fit: contain;
     }
   }
   .desc {
     margin: 15px 0px;
+    display: -webkit-box;
+    max-width: 100%;
+    height: 47px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.525;
   }
   .buttons {
     display: flex;
+    justify-content: center;
     .play_section,
     .more_section {
       display: flex;

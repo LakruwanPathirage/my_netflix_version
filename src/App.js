@@ -4,13 +4,21 @@ import Watch from "./pages/watch/Watch";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-
+import { useContext } from "react";
+import { AuthContext } from "./authContext/AuthContext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
-  const user = true;
+  const { user } = useContext(AuthContext);
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
+        <Route
+          path="/"
+          element={user ? <Home /> : <Navigate to="/register" />}
+        />
+
         {user && (
           <>
             <Route path="/movies" element={<Home type="movie" />} />
@@ -29,6 +37,7 @@ function App() {
         />
         <Route path="/*" element={<Navigate to="/login" />} />
       </Routes>
+      <ToastContainer />
     </BrowserRouter>
   );
 }
