@@ -6,22 +6,14 @@ import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-const ListItem = ({ index, movieId }) => {
+const ListItem = ({ index, moviedata }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [movie, setMovie] = useState({});
-  console.log("id" + movieId);
+  console.log("o");
+  console.log(moviedata);
   useEffect(() => {
-    const getSingleMovie = async () => {
-      const res = await axios.get("movies/find/" + movieId, {
-        headers: {
-          token: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGJlMTM5ZmMzZjUzMjU5MDdkZjY3ZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY2ODY0OTAzMCwiZXhwIjoxNjY5MDgxMDMwfQ.kmAtxr0XWpFy2OshQfouYB0tdVNvGs-MmpsddPlG4to`,
-        },
-      });
-      console.log("mm", res.data);
-      setMovie(res.data);
-    };
-    getSingleMovie();
-  }, [movieId]);
+    setMovie(moviedata);
+  }, [JSON.stringify(moviedata)]);
   const trailer =
     "https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0fd273d2c6d9a064f3ae35579b2bbdf&profile_id=139&oauth2_token_id=57447761";
   return (

@@ -4,17 +4,18 @@ import List from "../../components/movieList/List";
 import "./home.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import CircularProgress from "@mui/material/CircularProgress";
 const Home = ({ type }) => {
   const zIndex = 100;
   const [listdata, setListData] = useState([]);
   const [genere, setGenere] = useState(null);
+  const [fetching, setfetching] = useState(true);
   // `lists{ ${type}? "?type=${type}" ${genere}?"&genre=${genere}:" :""}`,
   useEffect(() => {
     const getListData = async () => {
       try {
         const res = await axios.get(
-          `/lists${type ? "?type=" + type : ""}${
+          `lists/getListRefs${type ? "?type=" + type : ""}${
             genere ? "&genre=" + genere : ""
           }`,
           {
@@ -25,7 +26,8 @@ const Home = ({ type }) => {
           }
         );
         setListData(res.data);
-        console.log(res.data);
+        setfetching(false);
+        console.log("bbb", res.data);
       } catch (err) {
         console.log(err);
       }
@@ -35,6 +37,11 @@ const Home = ({ type }) => {
 
   return (
     <div className="home">
+      {fetching && (
+        <div className="circular_spinner">
+          <CircularProgress size={90} />
+        </div>
+      )}
       <Navbar />
       <Featured type={type} setGenere={setGenere} />
       {listdata.map((el, index) => (
