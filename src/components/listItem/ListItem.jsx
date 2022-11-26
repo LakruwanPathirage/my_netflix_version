@@ -70,10 +70,8 @@ const ListItem = ({ index, moviedata }) => {
       className="new_movie_link"
       onMouseEnter={() => {
         setIsHovered(true);
-        console.log("1");
       }}
       onMouseLeave={() => {
-        console.log("2");
         setIsHovered(false);
       }}
     >
@@ -88,8 +86,7 @@ const ListItem = ({ index, moviedata }) => {
             autoPlay
             muted
             loop
-            // src={movie.trailer || trailer}
-            src={Defaultvideo}
+            src={movie.trailer || Defaultvideo}
             className="new_video_player"
             // autoPlay={isHovered ? true : false}
           />
