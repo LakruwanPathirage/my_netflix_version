@@ -1,7 +1,9 @@
-.list {
-  width: 100%;
-  margin-top: 10px;
+@import "../../app.scss";
 
+.list {
+  width: 95%;
+  margin-top: 10px;
+  margin: auto;
   .listTitle {
     color: white;
     font-size: 20px;
@@ -41,4 +43,40 @@
       transition: all 1s ease;
     }
   }
+}
+
+// new carasoul
+
+.new_list {
+  width: 95%;
+
+  @include tablet {
+    width: 90%;
+  }
+
+  margin: 20px auto;
+  .new_list_title {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 50px;
+  }
+}
+
+.slick-prev:before,
+.slick-next:before {
+  display: none;
+  position: relative;
+  top: 50%;
+  color: transparent !important;
+}
+
+.new_custom_relative {
+  position: relative;
+  height: 100%;
+}
+.new_custom_arrow {
+  position: absolute;
+  top: 45%;
+  color: white;
 }

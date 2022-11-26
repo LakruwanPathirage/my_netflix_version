@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={user ? <Home /> : <Navigate to="/register" />}
+          element={user ? <Home type="movie" /> : <Navigate to="/register" />}
         />
 
         {user && (

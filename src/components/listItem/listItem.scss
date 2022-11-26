@@ -1,11 +1,10 @@
 .list_item {
   overflow: hidden;
   z-index: 0;
-  min-width: 225px;
-  height: 120px;
+
+  height: 180px;
   width: max-content;
   background-color: var(--main-color);
-  margin-right: 5px;
 }
 
 .absolute_wrapper {
@@ -96,5 +95,39 @@
     .info {
       display: block;
     }
+  }
+}
+
+// new List Item
+
+.new_movie_link {
+  height: 150px;
+  width: 100%;
+  padding: 2px;
+  transition: 1000ms ease-in;
+  background-color: var(--main-color);
+
+  .new_video_player {
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+    display: none;
+  }
+
+  .new_movie_img {
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+    padding: 0px 10px;
+  }
+}
+.new_movie_link:hover {
+  .new_movie_img {
+    display: none;
+  }
+
+  .new_video_player {
+    transform: scale(1.1);
+    display: block;
   }
 }

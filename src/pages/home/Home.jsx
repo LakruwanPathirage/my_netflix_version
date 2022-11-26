@@ -20,7 +20,9 @@ const Home = ({ type }) => {
           }`,
           {
             headers: {
-              token: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGJlMTM5ZmMzZjUzMjU5MDdkZjY3ZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY2ODY0OTAzMCwiZXhwIjoxNjY5MDgxMDMwfQ.kmAtxr0XWpFy2OshQfouYB0tdVNvGs-MmpsddPlG4to`,
+              token: `Bearer ${
+                JSON.parse(localStorage.getItem("user")).accessToken
+              }`,
               ContentType: "application/json",
             },
           }
