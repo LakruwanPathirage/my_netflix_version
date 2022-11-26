@@ -1,3 +1,4 @@
+@import "../../app.scss";
 .featured {
   position: relative;
   width: 100%;
@@ -19,10 +20,34 @@
     width: 50%;
     color: white;
     font-size: 16px;
+
+    @include desktop {
+      right: 50px;
+      left: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @include tablet {
+      left: 50px;
+      right: auto;
+      display: block;
+    }
     img {
       width: 37vw;
       height: 223px;
       object-fit: contain;
+
+      @include desktop {
+        height: 223px;
+        width: 30vw;
+        align-self: flex-end;
+      }
+
+      @include tablet {
+        height: 162px;
+        width: 260px;
+      }
     }
   }
   .desc {

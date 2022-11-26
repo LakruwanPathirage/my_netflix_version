@@ -1,6 +1,7 @@
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "./watch.scss";
 import { Link, useLocation } from "react-router-dom";
+import Cusvideo from "../../images/batMan_trailer.mp4";
 const Watch = () => {
   const location = useLocation();
   const movieObj = location.state.movie;
@@ -15,7 +16,7 @@ const Watch = () => {
       </Link>
       <div className="videoplayer">
         <video
-          src={movieObj.trailer}
+          src={movieObj?.video || Cusvideo}
           progress
           autoPlay
           controls

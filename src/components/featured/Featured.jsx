@@ -3,6 +3,8 @@ import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import DeafultFeaturedImg1 from "../../images/No_ImageAvailable_1.png";
+import DefaultFeaturedImg2 from "../../images/No_ImageAvailable_2.png";
 const Featured = ({ type, setGenere }) => {
   const [content, setContent] = useState({});
 
@@ -11,7 +13,9 @@ const Featured = ({ type, setGenere }) => {
       try {
         const res = await axios.get(`/movies/random?type=${type}`, {
           headers: {
-            token: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGJlMTM5ZmMzZjUzMjU5MDdkZjY3ZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY2ODY0OTAzMCwiZXhwIjoxNjY5MDgxMDMwfQ.kmAtxr0XWpFy2OshQfouYB0tdVNvGs-MmpsddPlG4to`,
+            token: `Bearer ${
+              JSON.parse(localStorage.getItem("user")).accessToken
+            }`,
           },
         });
         setContent(res.data[0]);
@@ -34,7 +38,7 @@ const Featured = ({ type, setGenere }) => {
           >
             <option>Genre</option>
             <option value="adventure">Adventure</option>
-            <option value="comedy">Comedy</option>
+            {/* <option value="comedy">Comedy</option>
             <option value="crime">Crime</option>
             <option value="fantasy">Fantasy</option>
             <option value="historical">Historical</option>
@@ -42,18 +46,18 @@ const Featured = ({ type, setGenere }) => {
             <option value="romance">Romance</option>
             <option value="sci-fi">Sci-fi</option>
             <option value="thriller">Thriller</option>
-            <option value="western">Western</option>
+            <option value="western">Western</option> */}
             <option value="animation">Animation</option>
-            <option value="drama">Drama</option>
-            <option value="documentary">Documentary</option>
+            {/* <option value="drama">Drama</option>
+            <option value="documentary">Documentary</option> */}
           </select>
         </div>
       )}
 
-      <img src={content.img} alt="" />
+      <img src={content?.img} alt="" />
       <div className="info">
-        <img src={content.imgTitle} alt="" />
-        <div className="desc">{content.desc}</div>
+        <img src={content?.imgTitle} alt="" />
+        <div className="desc">{content?.desc}</div>
         <div className="buttons">
           <button className="play_section">
             <PlayArrowIcon />
