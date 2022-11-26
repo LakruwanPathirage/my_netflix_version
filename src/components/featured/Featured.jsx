@@ -36,7 +36,7 @@ const Featured = ({ type, setGenere }) => {
             id="genre"
             onChange={e => setGenere(e.target.value)}
           >
-            <option>Genre</option>
+            {/* <option>Genre</option> */}
             <option value="adventure">Adventure</option>
             {/* <option value="comedy">Comedy</option>
             <option value="crime">Crime</option>
