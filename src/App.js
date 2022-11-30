@@ -8,6 +8,8 @@ import { useContext } from "react";
 import { AuthContext } from "./authContext/AuthContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+axios.defaults.baseURL = "https://netflix-api-a7l7.onrender.com/api/";
 function App() {
   const { user } = useContext(AuthContext);
 
