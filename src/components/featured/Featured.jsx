@@ -5,26 +5,39 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import DeafultFeaturedImg1 from "../../images/No_ImageAvailable_1.png";
 import DefaultFeaturedImg2 from "../../images/No_ImageAvailable_2.png";
-const Featured = ({ type, setGenere }) => {
+import { useLocation } from "react-router-dom";
+const Featured = ({ type, setGenere, genere }) => {
+  const customLocation = useLocation();
   const [content, setContent] = useState({});
 
+  console.log(
+    "mm",
+    `/movies/random?type=${type}${
+      genere != null && genere != "Genre" ? "&genre=" + genere : ""
+    }`
+  );
   useEffect(() => {
     const getRandomContent = async () => {
       try {
-        const res = await axios.get(`/movies/random?type=${type}`, {
-          headers: {
-            token: `Bearer ${
-              JSON.parse(localStorage.getItem("user")).accessToken
-            }`,
-          },
-        });
+        const res = await axios.get(
+          `/movies/random?type=${type}${
+            genere != null && genere != "Genre" ? "&genre=" + genere : ""
+          }`,
+          {
+            headers: {
+              token: `Bearer ${
+                JSON.parse(localStorage.getItem("user")).accessToken
+              }`,
+            },
+          }
+        );
         setContent(res.data[0]);
       } catch (err) {
         console.log(err);
       }
     };
     getRandomContent();
-  }, [type]);
+  }, [type, genere]);
   return (
     <div className="featured">
       {type && (
@@ -36,7 +49,7 @@ const Featured = ({ type, setGenere }) => {
             id="genre"
             onChange={e => setGenere(e.target.value)}
           >
-            {/* <option>Genre</option> */}
+            <option>Genre</option>
             <option value="adventure">Adventure</option>
             {/* <option value="comedy">Comedy</option>
             <option value="crime">Crime</option>

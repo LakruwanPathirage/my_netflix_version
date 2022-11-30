@@ -16,7 +16,7 @@ const Home = ({ type }) => {
       try {
         const res = await axios.get(
           `lists/getListRefs${type ? "?type=" + type : ""}${
-            genere ? "&genre=" + genere : ""
+            genere != null && genere != "Genre" ? "&genre=" + genere : ""
           }`,
           {
             headers: {
@@ -45,7 +45,7 @@ const Home = ({ type }) => {
         </div>
       )}
       <Navbar />
-      <Featured type={type} setGenere={setGenere} />
+      <Featured type={type} setGenere={setGenere} genere={genere} />
       {listdata.map((el, index) => (
         <div
           style={{ zIndex: zIndex - index, position: "relative" }}
