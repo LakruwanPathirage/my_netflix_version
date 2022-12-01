@@ -24,27 +24,27 @@ const Navbar = () => {
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
             alt=""
           />
-          <Link to="/" className="link">
+          <Link to="/" className="link home_link">
             <span>Homepage</span>
           </Link>
-          <Link to="/series" className="link">
+          <Link to="/series" className="link series_link">
             <span className="navbarmainLinks">Series</span>
           </Link>
-          <Link to="/movies" className="link">
+          <Link to="/movies" className="link movies_link">
             <span className="navbarmainLinks">Movies</span>
           </Link>
           {/* <span>New and Popular</span> */}
         </div>
         <div className="right">
           <SearchIcon className="icon" />
-          <span>KID</span>
+          <span className="kid">KID</span>
           <NotificationsIcon className="icon" />
           <img
             src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
             alt=""
           />
           <div className="profile">
-            <ArrowDropDownIcon className="icon" />
+            <ArrowDropDownIcon className="icon drop_down_arrow" />
             <div className="options">
               <span>Settings</span>
               <span onClick={() => logOutService(dispatch)}>Logout</span>
