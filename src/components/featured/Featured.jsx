@@ -42,7 +42,9 @@ const Featured = ({ type, setGenere, genere }) => {
     <div className="featured">
       {type && (
         <div className="genere_conatiner">
-          <span>{type === "movie" ? "Movies" : "Series"}</span>
+          <span className="drop_down_select_movie">
+            {type === "movie" ? "Movies" : "Series"}
+          </span>
 
           <select
             name="genre"
